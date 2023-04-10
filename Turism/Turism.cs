@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Turism
 {
-    public partial class Form1 : Form
+    public partial class Turism : Form
     {
-        public Form1()
+        public Turism()
         {
             InitializeComponent();
         }
