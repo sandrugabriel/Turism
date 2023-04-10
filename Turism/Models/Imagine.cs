@@ -7,14 +7,14 @@ using System.Windows.Forms;
 
 namespace Turism.Models
 {
-    internal class Imaginii
+    internal class Imagine
     {
 
         private int idimagine;
         private int idLocalitate;
         private string caleFisier;
 
-        public Imaginii(int idimagine, int idLocalitate, string caleFisier)
+        public Imagine(int idimagine, int idLocalitate, string caleFisier)
         {
             this.idimagine = idimagine;
             this.idLocalitate = idLocalitate;
