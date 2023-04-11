@@ -54,5 +54,37 @@ namespace Turism.Controllers
 
         }
 
+
+        public List<string> getListLoc()
+        {
+
+            List<string> list = new List<string>();
+
+            for(int i = 0; i < planificarii.Count; i++)
+            {
+
+                list.Add(planificarii[i].getLocalitate());
+
+            }
+
+            return list;
+        }
+
+        public List<string> getImgList(string loc)
+        {
+
+            for(int i = 0; i < planificarii.Count; i++)
+            {
+                if(planificarii[i].getLocalitate().Equals(loc))
+                {
+                  // MessageBox.Show(planificarii[i].getListImg().Count.ToString());
+
+                     return planificarii[i].getListImg();
+
+                }
+            }
+            return null;
+        }
+
     }
 }

@@ -18,7 +18,7 @@ namespace Turism.Models
         private DateTime dataEnd;
         private int ziua;
 
-        public Planificare(int idvizita, string localitate, string frecventa, DateTime dataStart, DateTime dataEnd)
+        public Planificare(int idvizita, string localitate, string frecventa, DateTime dataStart, DateTime dataEnd, List<string> list)
         {
 
             this.idVizita = idvizita;
@@ -26,6 +26,7 @@ namespace Turism.Models
             this.frecventa = frecventa;
             this.dataStart = dataStart;
             this.dataEnd = dataEnd;
+            this.imaginii = list;
 
         }
 
@@ -37,16 +38,18 @@ namespace Turism.Models
             this.localitate = prop[1];
             this.frecventa = prop[2];
 
-            int dim = prop.Length - 4;
-            if (prop[2] == "ocazional")
-            {
+            int dim = prop.Length;
+            if (prop[2].Equals("ocazional"))
+            { 
                 this.dataStart = DateTime.Parse(prop[3]);
                 this.dataEnd = DateTime.Parse(prop[4]);
 
+                   
 
                 for (int i = 5; i < dim; i++)
                 {
                     this.imaginii.Add(prop[i]);
+                   
                 }
 
             }
@@ -67,6 +70,12 @@ namespace Turism.Models
         public int getIdVizita()
         {
             return idVizita;
+        }
+
+        public List<string> getListImg()
+        {
+           // MessageBox.Show(imaginii.Count.ToString());
+            return imaginii;
         }
 
         public string getLocalitate()

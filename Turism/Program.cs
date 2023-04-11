@@ -15,12 +15,10 @@ namespace Turism
         [STAThread]
         static void Main()
         {
-           // Application.EnableVisualStyles();
-           // Application.SetCompatibleTextRenderingDefault(false);
-           // Application.Run(new Turism());
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
+            Application.Run(new Turism());
 
-            ControllerPlanificari controllerPlanificari = new ControllerPlanificari();
-            controllerPlanificari.afisare();
         }
     }
 }
