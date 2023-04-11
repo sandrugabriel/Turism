@@ -7,17 +7,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Turism.Panel_uri;
 
 namespace Turism
 {
-    public partial class Turism : Form
+    public partial class Mockup : Form
     {
-        public Turism()
+        public Mockup()
         {
             InitializeComponent();
-
-            this.Controls.Add(new pnlGenerarePoster());
         }
     }
 }
