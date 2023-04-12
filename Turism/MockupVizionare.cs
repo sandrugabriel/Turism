@@ -7,17 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Turism.Panel_uri;
 
 namespace Turism
 {
-    public partial class Turism : Form
+    public partial class MockupVizionare : Form
     {
-        public Turism()
+        public MockupVizionare()
         {
             InitializeComponent();
+        }
 
-            this.Controls.Add(new pnlVizionareExcursi(this));
+        private void dataGridView3_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

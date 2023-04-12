@@ -77,13 +77,35 @@ namespace Turism.Controllers
             {
                 if(planificarii[i].getLocalitate().Equals(loc))
                 {
-                  // MessageBox.Show(planificarii[i].getListImg().Count.ToString());
 
                      return planificarii[i].getListImg();
 
                 }
             }
             return null;
+        }
+
+        public List<Planificare> getAllList()
+        {
+
+            return planificarii;
+        }
+
+        public List<Planificare> getDateList(DateTime datestart , DateTime dateend)
+        {
+            List<Planificare> list = new List<Planificare >();
+
+            for(int i = 0; i < planificarii.Count; i++)
+            {
+
+                if(datestart <= planificarii[i].getDataStart() && planificarii[i].getDataEnd() <= dateend)
+                {
+                    list.Add(planificarii[i]);
+                }
+
+            }
+
+            return list;
         }
 
     }
