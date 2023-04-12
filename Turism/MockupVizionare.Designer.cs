@@ -56,13 +56,20 @@
             this.dateEnd3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.frecventa3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ziua3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lblNume = new System.Windows.Forms.Label();
+            this.lblData = new System.Windows.Forms.Label();
+            this.pctImagine = new System.Windows.Forms.PictureBox();
+            this.prsBar = new System.Windows.Forms.ProgressBar();
+            this.btnStart = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.planificari.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.perioadaViz.SuspendLayout();
             this.itinerariu.SuspendLayout();
+            this.imagini.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctImagine)).BeginInit();
             this.SuspendLayout();
             // 
             // btnGenerare
@@ -84,7 +91,7 @@
             this.tabControl1.Location = new System.Drawing.Point(47, 119);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(879, 484);
+            this.tabControl1.Size = new System.Drawing.Size(892, 484);
             this.tabControl1.TabIndex = 11;
             // 
             // planificari
@@ -177,9 +184,14 @@
             // 
             // imagini
             // 
+            this.imagini.Controls.Add(this.btnStart);
+            this.imagini.Controls.Add(this.prsBar);
+            this.imagini.Controls.Add(this.pctImagine);
+            this.imagini.Controls.Add(this.lblData);
+            this.imagini.Controls.Add(this.lblNume);
             this.imagini.Location = new System.Drawing.Point(4, 25);
             this.imagini.Name = "imagini";
-            this.imagini.Size = new System.Drawing.Size(871, 455);
+            this.imagini.Size = new System.Drawing.Size(884, 455);
             this.imagini.TabIndex = 3;
             this.imagini.Text = "Vizualizare imagini";
             this.imagini.UseVisualStyleBackColor = true;
@@ -333,6 +345,51 @@
             this.ziua3.ReadOnly = true;
             this.ziua3.Width = 125;
             // 
+            // lblNume
+            // 
+            this.lblNume.AutoSize = true;
+            this.lblNume.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblNume.Location = new System.Drawing.Point(50, 34);
+            this.lblNume.Name = "lblNume";
+            this.lblNume.Size = new System.Drawing.Size(65, 27);
+            this.lblNume.TabIndex = 0;
+            this.lblNume.Text = "label3";
+            // 
+            // lblData
+            // 
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblData.Location = new System.Drawing.Point(419, 34);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(65, 27);
+            this.lblData.TabIndex = 1;
+            this.lblData.Text = "label4";
+            // 
+            // pctImagine
+            // 
+            this.pctImagine.Location = new System.Drawing.Point(23, 95);
+            this.pctImagine.Name = "pctImagine";
+            this.pctImagine.Size = new System.Drawing.Size(540, 318);
+            this.pctImagine.TabIndex = 2;
+            this.pctImagine.TabStop = false;
+            // 
+            // prsBar
+            // 
+            this.prsBar.Location = new System.Drawing.Point(587, 111);
+            this.prsBar.Name = "prsBar";
+            this.prsBar.Size = new System.Drawing.Size(284, 43);
+            this.prsBar.TabIndex = 3;
+            // 
+            // btnStart
+            // 
+            this.btnStart.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 18F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnStart.Location = new System.Drawing.Point(650, 209);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(150, 66);
+            this.btnStart.TabIndex = 4;
+            this.btnStart.Text = "Start";
+            this.btnStart.UseVisualStyleBackColor = true;
+            // 
             // MockupVizionare
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -351,8 +408,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.perioadaViz.ResumeLayout(false);
             this.itinerariu.ResumeLayout(false);
+            this.imagini.ResumeLayout(false);
+            this.imagini.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pctImagine)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -388,5 +448,10 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dateEnd3;
         private System.Windows.Forms.DataGridViewTextBoxColumn frecventa3;
         private System.Windows.Forms.DataGridViewTextBoxColumn ziua3;
+        private System.Windows.Forms.Button btnStart;
+        private System.Windows.Forms.ProgressBar prsBar;
+        private System.Windows.Forms.PictureBox pctImagine;
+        private System.Windows.Forms.Label lblData;
+        private System.Windows.Forms.Label lblNume;
     }
 }
