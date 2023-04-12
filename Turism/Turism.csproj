@@ -53,7 +53,16 @@
     <Compile Include="Mockup.Designer.cs">
       <DependentUpon>Mockup.cs</DependentUpon>
     </Compile>
+    <Compile Include="MockupVizionare.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MockupVizionare.Designer.cs">
+      <DependentUpon>MockupVizionare.cs</DependentUpon>
+    </Compile>
     <Compile Include="Panel-uri\pnlGenerarePoster.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Panel-uri\pnlVizionareExcursi.cs">
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Turism.cs">
@@ -69,6 +78,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Mockup.resx">
       <DependentUpon>Mockup.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MockupVizionare.resx">
+      <DependentUpon>MockupVizionare.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Turism.resx">
       <DependentUpon>Turism.cs</DependentUpon>

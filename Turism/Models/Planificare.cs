@@ -72,6 +72,11 @@ namespace Turism.Models
             return idVizita;
         }
 
+        public string getFrecventa()
+        {
+            return frecventa;
+        }
+
         public List<string> getListImg()
         {
            // MessageBox.Show(imaginii.Count.ToString());
