@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
+using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -41,6 +42,13 @@ namespace Turism.Panel_uri
         DataGridViewTextBoxColumn dateEnd3;
         DataGridViewTextBoxColumn frecventa3;
         DataGridViewTextBoxColumn ziua3;
+        Button btnStart;
+        ProgressBar prsBar;
+        PictureBox pctImagine;
+        Label lblData;
+        Label lblNume;
+        Timer timer;
+        Button btnStop;
 
         Turism form;
 
@@ -55,11 +63,15 @@ namespace Turism.Panel_uri
             controllerPlanificari = new ControllerPlanificari();
             planificares = new List<Planificare>();
             listItnierariu = new List<Planificare>();
-
+            timer = new Timer();
             this.form.Size = new System.Drawing.Size(960, 675);
             this.Size = new System.Drawing.Size(1212, 774);
             this.Name = "MockupVizionare";
             this.Text = "MockupVizionare";
+
+            this.timer.Enabled = false;
+            this.timer.Tick += new EventHandler(timer_Tick);
+            this.timer.Interval = 2000;
 
             this.btnGenerare = new Button();
             this.tabControl1 = new TabControl();
@@ -89,6 +101,12 @@ namespace Turism.Panel_uri
             this.dateEnd3 = new DataGridViewTextBoxColumn();
             this.frecventa3 = new DataGridViewTextBoxColumn();
             this.ziua3 = new DataGridViewTextBoxColumn();
+            this.btnStop = new Button();
+            this.btnStart = new Button();
+            this.lblNume = new Label();
+            this.lblData = new Label();
+            this.pctImagine = new PictureBox();
+            this.prsBar = new ProgressBar();
 
             this.Controls.Add(this.btnGenerare);
             this.Controls.Add(this.tabControl1);
@@ -96,6 +114,7 @@ namespace Turism.Panel_uri
             this.Controls.Add(this.dateEnd);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dateStart);
+
 
 
             // btnGenerare
@@ -196,8 +215,15 @@ namespace Turism.Panel_uri
             this.itinerariu.Name = "itinerariu";
             this.itinerariu.Size = new System.Drawing.Size(871, 455);
             this.itinerariu.Text = "Vizualizare itinerariu";
-             
+            
             // imagini
+
+            this.imagini.Controls.Add(this.btnStart);
+            this.imagini.Controls.Add(this.prsBar);
+            this.imagini.Controls.Add(this.pctImagine);
+            this.imagini.Controls.Add(this.lblData);
+            this.imagini.Controls.Add(this.lblNume);
+            this.imagini.Controls.Add(this.btnStop);
             this.imagini.Location = new System.Drawing.Point(4, 25);
             this.imagini.Name = "imagini";
             this.imagini.Size = new System.Drawing.Size(871, 455);
@@ -332,6 +358,49 @@ namespace Turism.Panel_uri
             this.ziua3.ReadOnly = true;
             this.ziua3.Width = 125;
 
+
+            // lblNume
+            this.lblNume.AutoSize = true;
+            this.lblNume.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F);
+            this.lblNume.Location = new System.Drawing.Point(50, 34);
+            this.lblNume.Name = "lblNume";
+            this.lblNume.Size = new System.Drawing.Size(65, 27);
+            this.lblNume.Text = "label3";
+             
+            // lblData
+            this.lblData.AutoSize = true;
+            this.lblData.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 12F);
+            this.lblData.Location = new System.Drawing.Point(419, 34);
+            this.lblData.Name = "lblData";
+            this.lblData.Size = new System.Drawing.Size(65, 27);
+            this.lblData.Text = "label4";
+            
+            // pctImagine
+            this.pctImagine.Location = new System.Drawing.Point(23, 95);
+            this.pctImagine.Name = "pctImagine";
+            this.pctImagine.Size = new System.Drawing.Size(540, 318);
+            this.pctImagine.SizeMode = PictureBoxSizeMode.StretchImage;
+            
+            // prsBar
+            this.prsBar.Location = new System.Drawing.Point(587, 111);
+            this.prsBar.Name = "prsBar";
+            this.prsBar.Size = new System.Drawing.Size(284, 43);
+             
+            // btnStart
+            this.btnStart.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 18F);
+            this.btnStart.Location = new System.Drawing.Point(650, 209);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(150, 66);
+            this.btnStart.Text = "Start";
+            this.btnStart.Click += new EventHandler(btnstart_Click);
+
+            // btnStop
+            this.btnStop.Font = new System.Drawing.Font("Microsoft YaHei UI Light", 18F);
+            this.btnStop.Location = new System.Drawing.Point(650, 209);
+            this.btnStop.Name = "btnStop";
+            this.btnStop.Size = new System.Drawing.Size(150, 66);
+            this.btnStop.Text = "Stop";
+            this.btnStop.Click += new EventHandler(btnstop_Click);
         }
 
         public void crescatoreNume(List<Planificare> list)
@@ -418,9 +487,31 @@ namespace Turism.Panel_uri
             loadDataView();
 
         }
+        private int i = 0;
 
+        private void timer_Tick(object sender, EventArgs e)
+        {
+           
+            pctImagine.Image = Image.FromFile(Application.StartupPath + @"/Imagini/" +listItnierariu[i].getListImg()[i]);
 
+            i++;
+        }
 
+        private void btnstart_Click(object sender, EventArgs e)
+        {
+
+            timer.Enabled = true;
+            btnStart.Visible = false;
+            btnStop.Visible = true;
+
+        }
+        private void btnstop_Click(object sender, EventArgs e)
+        {
+
+            timer.Enabled = false;
+            btnStop.Visible = false;
+            btnStart.Visible = true;
+        }
 
     }
 }
